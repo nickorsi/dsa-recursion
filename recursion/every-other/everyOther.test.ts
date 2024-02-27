@@ -5,4 +5,5 @@ it("returns a string with every other character in the input", function () {
   expect(everyOther("")).toBe("");
   expect(everyOther("h")).toBe("h");
   expect(everyOther("hello")).toBe("hlo");
+  expect(everyOther("hell")).toBe("hl");
 });
