@@ -1,20 +1,24 @@
 /** binarySearch: given a sorted array of numbers, and a value,
  * return true if val is in array, false if not present). */
 
-function binarySearch(arr: number[], val: number, left = 0, right = arr.length): boolean {
-  const mid = Math.floor((left + right) / 2);
+function binarySearch(
+  arr: number[],
+  val: number,
+  left = 0,
+  right = arr.length): boolean {
+  const middleIndex = Math.floor((left + right) / 2);
 
   // base case(s):
   // if arr[mid] === val -> true
-  if (arr[mid] === val) return true;
+  if (arr[middleIndex] === val) return true;
   // if left > right -> false
   if (left > right) return false;
   // if arr[mid] > val -> binarySearch(arr, val, left, right= mid - 1)
-  if (arr[mid] > val) {
-    return binarySearch(arr, val, left, right = mid - 1);
+  if (arr[middleIndex] > val) {
+    return binarySearch(arr, val, left, right = middleIndex - 1);
   } else {
     // if arr[mid] < val -> binarySearch(arr, val, left= mid + 1, right)
-    return binarySearch(arr, val, left = mid + 1, right);
+    return binarySearch(arr, val, left = middleIndex + 1, right);
   }
 }
 
@@ -27,7 +31,11 @@ export { binarySearch };
 // console.log(binarySearch([1, 2, 3, 4], 11)); // false
 // Non-recursive binary search
 
-function nonRecBinarySearch(arr: number[], item: number, left = 0, right = arr.length): boolean {
+function nonRecBinarySearch(
+  arr: number[],
+  item: number,
+  left = 0,
+  right = arr.length): boolean {
   let low = left;
   let high = right;
 
